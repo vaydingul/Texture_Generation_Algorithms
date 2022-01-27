@@ -1,16 +1,16 @@
 % Set x and y distance
-x = linspace(-1, 1, 100);
-y = linspace(-1, 1, 100);
+x = linspace(-1, 1, 1000);
+y = linspace(-1, 1, 1000);
 
 % General constant to multiply the whole sginal
-k = 0.01;
+k = 1;
 
 %! All of the below parameters must have the same size!
 
 frequencyX = [1 2 3]; % Frequency of the signals in x-drection
 frequencyY = [3 4 5]; % Frequency of the signals in y-direction
-amplitudeX = [0.01 0.05 0.1]; % Amplitude of the signals in x-direction
-amplitudeY = [0.1 0.05 0.01]; % Amplitude of the signals in y-direction
+amplitudeX = [1 1 1]; % Amplitude of the signals in x-direction
+amplitudeY = [1 1 1]; % Amplitude of the signals in y-direction
 phaseX = [-90 30 20]; % Phase of the signals in x-direction
 phaseY = [-180 50 45]; % Phase of the signals in y-direction
 
@@ -23,7 +23,7 @@ figure;
 s = surf(f);
 s.EdgeColor = 'none';
 figure;
-imshow(f);
+imshow(f / 5);
 
 
 

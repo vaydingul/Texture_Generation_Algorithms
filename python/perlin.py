@@ -50,7 +50,7 @@ def generate_perlin_noise(grid_gradient, p):
     p_dot_vector = np.sum(
         grid_gradient[ps[..., 0], ps[..., 1]] * (p - ps), axis=3)
 
-    # Calculate the interpolation rations
+    # Calculate the interpolation ratios
     s1 = smoothstep(x - np.floor(x))
     s2 = smoothstep(y - np.floor(y))
 

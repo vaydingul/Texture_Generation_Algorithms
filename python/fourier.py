@@ -23,13 +23,30 @@ def fourier_texture(x, y, frequency_x, frequency_y, amplitude_x, amplitude_y, ph
 
 
 if __name__ == "__main__":
-
+	# Set x and y distance
 	x = np.linspace(-1, 1, 100)
 	y = np.linspace(-1, 1, 100)
 
-	x, y, f = fourier_texture(x, y, [1, 2, 3], [3, 4, 5], [0.01, 0.05, 0.1], [0.1, 0.05, 0.01], [-90, 30, 20], [-180, 50, 45], 0.01)
+	# General constant to multiply the whole sginal
+	k = 0.01
+
+
+	frequency_x = [1, 2, 3] # Frequency of the signals in x-drection 
+	frequency_y = [3, 4, 5] # Frequency of the signals in y-direction
+	amplitude_x = [0.01, 0.05, 0.1] # Amplitude of the signals in x-direction
+	amplitude_y = [0.1, 0.05, 0.01] # Amplitude of the signals in y-direction
+	phase_x = [-90, 30, 20] # Phase of the signals in x-direction
+	phase_y = [-180, 50, 45] # Phase of the signals in y-direction
+
+
+	x, y, f = fourier_texture(x, y, frequency_x, frequency_y, amplitude_x, amplitude_y, phase_x, phase_y, k)
 	
+	# Plot the result
 	fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
 	surf = ax.plot_surface(x, y, f ,linewidth=0, antialiased=False, cmap = cm.get_cmap("spring"), shade = True )
 	fig.tight_layout()
+	
+	plt.figure()
+	plt.imshow(f)
+
 	plt.show()
